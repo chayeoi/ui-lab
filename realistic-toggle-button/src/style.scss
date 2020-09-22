@@ -1,0 +1,83 @@
+$pink: #FF8FDE;
+$blue: #618BFF;
+
+$duration: 1.5s;
+$easing: cubic-bezier(0.68, -0.15, 0.265, 1.35);
+$iteration: 1;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: $blue;
+  transition: 1.5s $easing;
+}
+
+.background--on {
+  background: $pink;
+}
+
+.toggle-body {
+  width: 7rem;
+  height: 4rem;
+  position: absolute;
+  top: calc(50% - 4rem / 2);
+  left: calc(50% - 7rem / 2);
+  background: white;
+  border-radius: 2rem;
+  animation: angle-reverse $duration $easing;
+}
+
+.toggle-body--on {
+  animation: angle $duration $easing;
+  animation-direction: alternate;
+}
+
+.toggle-btn {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: calc(50% - 2rem / 2);
+  left: calc(27% - 2rem / 2);
+  background: white;
+  border-radius: 2rem;
+  background: $blue;
+  cursor: pointer;
+  transform:  translateX(0);
+  transition: $duration $easing;
+}
+
+.toggle-btn--on {
+  transition: $duration $easing;
+  transform:  translateX(150%);
+  background: $pink;
+}
+
+@keyframes angle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes angle-reverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
