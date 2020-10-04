@@ -1,0 +1,13 @@
+{
+  "name": "pure-css-sequence-animation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.11"
+  },
+  "scripts": {
+    "start": "parcel src/index.html --open"
+  }
+}
