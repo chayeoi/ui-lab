@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@700&display=swap');
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$speed: 12s;
+
+.container {
+  position: relative;
+  min-width: 720px;
+  height: 360px;
+  border-radius: 4px;
+  perspective: 800px;
+  perspective-origin: 150% -150%;
+  overflow: hidden;
+  background-image: linear-gradient(190deg, #def, #9ab 53%, #789 53%, #456);
+}
+
+.step {
+  position: absolute;
+  overflow: hidden;
+  border: solid #aaa;
+  border-width: 1px 0;
+
+  &A, &C, &E, &G {
+    width: 80px; height: 120px;
+    background-color: #fff;
+    transform: rotateX(90deg);
+
+    &::after {
+      color: #4b8;
+    }
+  }
+
+  &B, &D, &F {
+    width: 40px; height: 120px;
+    background-color: #bcd;
+    transform: rotateX(90deg) rotateY(90deg);
+
+    &::after {
+      color: #264;
+    }
+  }
+
+  &::after {
+    content: 'Climbing up the stairs';
+    position: absolute;
+    left: 400px;
+    font-family: 'Lemonada', cursive;
+    font-weight: bold;
+    font-size: 60px;
+    filter: blur(1px);
+    white-space: nowrap;
+    animation: textClimb $speed infinite linear;
+  }
+}
+
+.stepA {
+  width: 320px;
+  top: 200px;
+  left: 460px;
+}
+
+.stepB {
+  top: 180px;
+  left: 440px;
+  &::after {
+    animation-delay: ($speed / 30);
+  }
+}
+
+.stepC {
+  top: 160px;
+  left: 380px;
+  &::after {
+    animation-delay: ($speed / 30 * 3);
+  }
+}
+
+.stepD {
+  top: 140px;
+  left: 360px;
+  &::after {
+    animation-delay: ($speed / 30 * 4);
+  }
+}
+
+.stepE {
+  top: 120px;
+  left: 300px;
+  &::after {
+    animation-delay: ($speed / 30 * 6);
+  }
+}
+
+.stepF {
+  top: 100px;
+  left: 280px;
+  &::after {
+    animation-delay: ($speed / 30 * 7);
+  }
+}
+
+.stepG {
+  width: 400px;
+  top: 80px;
+  left: -100px;
+  &::after {
+    animation-delay: ($speed / 30 * 17);
+  }
+}
+
+@keyframes textClimb {
+  from { left: 400px; }
+  to { left: -800px; }
+}
